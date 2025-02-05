@@ -42,3 +42,10 @@ For (3), both node.js and browser examples are provided.
 
 ![image](https://github.com/user-attachments/assets/04b38fad-c7d1-4f09-8940-939b28a841ac)
 
+## Game of Life
+
+This is the code that solves [this problem](https://leetcode.com/problems/game-of-life/).
+
+![image](https://github.com/user-attachments/assets/6f0734eb-39a8-469b-830b-931007fdc0a3)
+
+The result matches the golden output. Action [run log](https://github.com/dkorolev/emscripten_demo/actions/runs/13151562550/job/36699797923).
