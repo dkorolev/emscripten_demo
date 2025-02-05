@@ -1,0 +1,16 @@
+name: run
+
+on:
+  workflow_dispatch:
+  push:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: git clone
+        uses: actions/checkout@v4
+      - name: build wasm
+        run: rm -rf wasm && cat code.cc | docker run -i $(docker build -q .) | tar xf -
+      - name: run wasm from node
+        run: (cd wasm; node run.js)
