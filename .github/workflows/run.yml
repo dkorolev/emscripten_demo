@@ -14,3 +14,5 @@ jobs:
         run: rm -rf wasm && cat code.cc | docker run -i $(docker build -q .) | tar xf -
       - name: run wasm from node
         run: (cd wasm; node run.js)
+      - name: run game of life
+        run: node runGameOfLife.js
