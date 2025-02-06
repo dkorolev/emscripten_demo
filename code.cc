@@ -6,7 +6,7 @@
 using namespace emscripten;
 
 std::string wasmVersion() {
-  return "1.1";
+  return "1.2";
 }
 
 int demoAdd(int a, int b) {
@@ -60,6 +60,13 @@ void gameOfLife(vector<vector<int>>& board) {
   }
 }
 
+void modifyArray(intptr_t p0, int n) {
+  auto p = reinterpret_cast<int*>(p0);
+  for (int i = 0; i < n; i++) {
+    ++p[i];
+  }
+}
+
 EMSCRIPTEN_BINDINGS(my_module) {
   function("wasmVersion", &wasmVersion);
   function("demoAdd", &demoAdd);
@@ -67,4 +74,5 @@ EMSCRIPTEN_BINDINGS(my_module) {
   register_vector<int>("VectorInt");
   register_vector<std::vector<int>>("VectorVectorInt");
   function("gameOfLife", &gameOfLife);
+  function("modifyArray", &modifyArray);
 }

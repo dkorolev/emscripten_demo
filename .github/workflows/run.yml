@@ -16,3 +16,5 @@ jobs:
         run: (cd wasm; node run.js)
       - name: run game of life
         run: node runGameOfLife.js
+      - name: run modify implace array
+        run: node runModifyArray.js

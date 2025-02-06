@@ -41,6 +41,15 @@ const run = async () => {
 run();
 EOF
 
-(cd wasm; emcc demo.cc -o demo.js -lembind --no-entry -s MODULARIZE=1 -s EXPORT_NAME=DemoWasmModule)
+(cd wasm;
+ emcc \
+   demo.cc \
+   -o demo.js \
+   -lembind \
+   --no-entry \
+   -s MODULARIZE=1 \
+   -s EXPORTED_FUNCTIONS=_malloc,_free \
+   -s EXPORTED_RUNTIME_METHODS=ccall,cwrap \
+   -s EXPORT_NAME=DemoWasmModule)
 
 tar cf - wasm/*
